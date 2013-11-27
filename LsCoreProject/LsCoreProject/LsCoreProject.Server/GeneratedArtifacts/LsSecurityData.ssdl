@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LsSecurityDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="LsSecurityDataStore">
+    <EntitySet Name="Permissions" EntityType="LsSecurityDataStore.Permission" store:Type="Tables" Schema="dbo" Table="Permission" />
+    <EntitySet Name="RoleAssignments" EntityType="LsSecurityDataStore.RoleAssignment" store:Type="Tables" Schema="dbo" Table="RoleAssignment" />
+    <EntitySet Name="RolePermissions" EntityType="LsSecurityDataStore.RolePermission" store:Type="Tables" Schema="dbo" Table="RolePermission" />
+    <EntitySet Name="Roles" EntityType="LsSecurityDataStore.Role" store:Type="Tables" Schema="dbo" Table="Role" />
+    <EntitySet Name="UserRegistrations" EntityType="LsSecurityDataStore.UserRegistration" store:Type="Tables" Schema="dbo" Table="UserRegistration" />
+    <AssociationSet Name="RolePermission_Permission" Association="LsSecurityDataStore.RolePermission_Permission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="RolePermissions" EntitySet="RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="RoleAssignment_Role" Association="LsSecurityDataStore.RoleAssignment_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RoleAssignments" EntitySet="RoleAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="RolePermission_Role" Association="LsSecurityDataStore.RolePermission_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RolePermissions" EntitySet="RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="RoleAssignment_User" Association="LsSecurityDataStore.RoleAssignment_User">
+      <End Role="User" EntitySet="UserRegistrations" />
+      <End Role="RoleAssignments" EntitySet="RoleAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="RoleAssignment_SourceAccount" Association="LsSecurityDataStore.RoleAssignment_SourceAccount">
+      <End Role="SourceAccount" EntitySet="UserRegistrations" />
+      <End Role="DerivingRoleAssignments" EntitySet="RoleAssignments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="322" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="RoleAssignment">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="SourceAccountName" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="SourceAccountName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="PermissionId" />
+    </Key>
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PermissionId" Type="nvarchar" Nullable="false" MaxLength="322" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="UserRegistration">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="FullName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <Association Name="RolePermission_Permission">
+    <End Role="Permission" Type="LsSecurityDataStore.Permission" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RolePermissions" Type="LsSecurityDataStore.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermissions">
+        <PropertyRef Name="PermissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleAssignment_Role">
+    <End Role="Role" Type="LsSecurityDataStore.Role" Multiplicity="1">
+      <OnDeleteAnnotation Action="Unset" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="RoleAssignments" Type="LsSecurityDataStore.RoleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="RoleAssignments">
+        <PropertyRef Name="RoleName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolePermission_Role">
+    <End Role="Role" Type="LsSecurityDataStore.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RolePermissions" Type="LsSecurityDataStore.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="RolePermissions">
+        <PropertyRef Name="RoleName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleAssignment_User">
+    <End Role="User" Type="LsSecurityDataStore.UserRegistration" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RoleAssignments" Type="LsSecurityDataStore.RoleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="RoleAssignments">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleAssignment_SourceAccount">
+    <End Role="SourceAccount" Type="LsSecurityDataStore.UserRegistration" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DerivingRoleAssignments" Type="LsSecurityDataStore.RoleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SourceAccount">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="DerivingRoleAssignments">
+        <PropertyRef Name="SourceAccountName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

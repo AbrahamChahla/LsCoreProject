@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="322" />
+    <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="64" />
+    <NavigationProperty Name="RolePermissions" Relationship="LightSwitchApplication.RolePermission_Permission" ToRole="RolePermissions" FromRole="Permission" />
+  </EntityType>
+  <EntityType Name="RoleAssignment">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="SourceAccountName" />
+    </Key>
+    <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="RoleName" Type="Edm.String" Nullable="false" MaxLength="128" />
+    <Property Name="SourceAccountName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <NavigationProperty Name="User" Relationship="LightSwitchApplication.RoleAssignment_User" ToRole="User" FromRole="RoleAssignments" />
+    <NavigationProperty Name="SourceAccount" Relationship="LightSwitchApplication.RoleAssignment_SourceAccount" ToRole="SourceAccount" FromRole="DerivingRoleAssignments" />
+    <NavigationProperty Name="Role" Relationship="LightSwitchApplication.RoleAssignment_Role" ToRole="Role" FromRole="RoleAssignments" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="RoleName" />
+      <PropertyRef Name="PermissionId" />
+    </Key>
+    <Property Name="RoleName" Type="Edm.String" Nullable="false" MaxLength="128" />
+    <Property Name="PermissionId" Type="Edm.String" Nullable="false" MaxLength="322" />
+    <NavigationProperty Name="Role" Relationship="LightSwitchApplication.RolePermission_Role" ToRole="Role" FromRole="RolePermissions" />
+    <NavigationProperty Name="Permission" Relationship="LightSwitchApplication.RolePermission_Permission" ToRole="Permission" FromRole="RolePermissions" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="128" />
+    <NavigationProperty Name="RoleAssignments" Relationship="LightSwitchApplication.RoleAssignment_Role" ToRole="RoleAssignments" FromRole="Role" />
+    <NavigationProperty Name="RolePermissions" Relationship="LightSwitchApplication.RolePermission_Role" ToRole="RolePermissions" FromRole="Role" />
+  </EntityType>
+  <EntityType Name="UserRegistration">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="FullName" Type="Edm.String" Nullable="false" MaxLength="256" />
+    <Property Name="Password" Type="Edm.String" MaxLength="128" />
+    <NavigationProperty Name="RoleAssignments" Relationship="LightSwitchApplication.RoleAssignment_User" ToRole="RoleAssignments" FromRole="User" />
+    <NavigationProperty Name="DerivingRoleAssignments" Relationship="LightSwitchApplication.RoleAssignment_SourceAccount" ToRole="DerivingRoleAssignments" FromRole="SourceAccount" />
+  </EntityType>
+  <Association Name="RolePermission_Permission">
+    <End Role="Permission" Type="LightSwitchApplication.Permission" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RolePermissions" Type="LightSwitchApplication.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermissions">
+        <PropertyRef Name="PermissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleAssignment_Role">
+    <End Role="Role" Type="LightSwitchApplication.Role" Multiplicity="1" />
+    <End Role="RoleAssignments" Type="LightSwitchApplication.RoleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="RoleAssignments">
+        <PropertyRef Name="RoleName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolePermission_Role">
+    <End Role="Role" Type="LightSwitchApplication.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RolePermissions" Type="LightSwitchApplication.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="RolePermissions">
+        <PropertyRef Name="RoleName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleAssignment_User">
+    <End Role="User" Type="LightSwitchApplication.UserRegistration" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RoleAssignments" Type="LightSwitchApplication.RoleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="RoleAssignments">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleAssignment_SourceAccount">
+    <End Role="SourceAccount" Type="LightSwitchApplication.UserRegistration" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DerivingRoleAssignments" Type="LightSwitchApplication.RoleAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SourceAccount">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="DerivingRoleAssignments">
+        <PropertyRef Name="SourceAccountName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LsSecurityData" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Permissions" EntityType="LightSwitchApplication.Permission" />
+    <EntitySet Name="RoleAssignments" EntityType="LightSwitchApplication.RoleAssignment" />
+    <EntitySet Name="RolePermissions1" EntityType="LightSwitchApplication.RolePermission" />
+    <EntitySet Name="Roles" EntityType="LightSwitchApplication.Role" />
+    <EntitySet Name="UserRegistrations" EntityType="LightSwitchApplication.UserRegistration" />
+    <AssociationSet Name="RolePermission_Permission" Association="LightSwitchApplication.RolePermission_Permission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="RolePermissions" EntitySet="RolePermissions1" />
+    </AssociationSet>
+    <AssociationSet Name="RoleAssignment_Role" Association="LightSwitchApplication.RoleAssignment_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RoleAssignments" EntitySet="RoleAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="RolePermission_Role" Association="LightSwitchApplication.RolePermission_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RolePermissions" EntitySet="RolePermissions1" />
+    </AssociationSet>
+    <AssociationSet Name="RoleAssignment_User" Association="LightSwitchApplication.RoleAssignment_User">
+      <End Role="User" EntitySet="UserRegistrations" />
+      <End Role="RoleAssignments" EntitySet="RoleAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="RoleAssignment_SourceAccount" Association="LightSwitchApplication.RoleAssignment_SourceAccount">
+      <End Role="SourceAccount" EntitySet="UserRegistrations" />
+      <End Role="DerivingRoleAssignments" EntitySet="RoleAssignments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
