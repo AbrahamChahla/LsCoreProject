@@ -7,8 +7,6 @@ We are now utilizing external js code for most of the functionality.  We've also
 
 Here are a few of the functions included in this file:
 
-LightSwitch 2013 Helper Functions/Methods/Whatever
-
 <b>init</b> - initializes the system: gets user name & permissions, imports menus
  
 <b>passwordValidator</b> - setup a visual field for password entry and validation
@@ -48,7 +46,7 @@ LightSwitch 2013 Helper Functions/Methods/Whatever
 
 =============
 
-LightSwitch 2013 Core Project with User Mgt, Tle Menus and Self Registration
+<h1>LightSwitch 2013 Core Project with User Mgt, Tle Menus and Self Registration</h1>
 
 As noted in the title, this tutorial will show you how to setup a core LightSwitch 2013 project. Not just any LightSwitch project, but one that will allow User Management natively vs. having to use Web API. We'll also show you how to implement a highly configurable system that supports creating MetroUI style tile menus. Finally, it doesn't do any good if you can't deploy the application, so we will show you how with Microsoft Azure. 
 
