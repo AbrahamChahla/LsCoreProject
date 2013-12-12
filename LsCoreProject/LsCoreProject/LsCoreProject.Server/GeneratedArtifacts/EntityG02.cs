@@ -131,30 +131,6 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string Screen
-        {
-            get
-            {
-                return global::LightSwitchApplication.Menu.DetailsClass.GetValue(this, global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties.Screen);
-            }
-            set
-            {
-                global::LightSwitchApplication.Menu.DetailsClass.SetValue(this, global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties.Screen, value);
-            }
-        }
-        
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Screen_IsReadOnly(ref bool result);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Screen_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Screen_Changed();
-
-        /// <summary>
-        /// No Modeled Description Available
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "12.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public string CreatedBy
         {
             get
@@ -392,14 +368,6 @@ namespace LightSwitchApplication
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string> Screen
-                {
-                    get
-                    {
-                        return base.GetItem(global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties.Screen) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string>;
-                    }
-                }
-                
                 public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string> CreatedBy
                 {
                     get
@@ -456,7 +424,6 @@ namespace LightSwitchApplication
             {
                 new int Id { get; set; }
                 new string Name { get; set; }
-                new string Screen { get; set; }
                 new string CreatedBy { get; }
                 new global::System.Nullable<global::System.DateTimeOffset> Created { get; }
                 new string ModifiedBy { get; }
@@ -544,43 +511,6 @@ namespace LightSwitchApplication
                 private static void _Name_OnValueChanged(global::LightSwitchApplication.Menu e)
                 {
                     e.Name_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string>.Entry
-                    Screen = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string>.Entry(
-                        "Screen",
-                        global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties._Screen_Stub,
-                        global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties._Screen_ComputeIsReadOnly,
-                        global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties._Screen_Validate,
-                        global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties._Screen_GetImplementationValue,
-                        global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties._Screen_SetImplementationValue,
-                        global::LightSwitchApplication.Menu.DetailsClass.PropertySetProperties._Screen_OnValueChanged);
-                private static void _Screen_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Menu.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string>.Data> c, global::LightSwitchApplication.Menu.DetailsClass d, object sf)
-                {
-                    c(d, ref d._Screen, sf);
-                }
-                private static bool _Screen_ComputeIsReadOnly(global::LightSwitchApplication.Menu e)
-                {
-                    bool result = false;
-                    e.Screen_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _Screen_Validate(global::LightSwitchApplication.Menu e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.Screen_Validate(r);
-                }
-                private static string _Screen_GetImplementationValue(global::LightSwitchApplication.Menu.DetailsClass d)
-                {
-                    return d.ImplementationEntity.Screen;
-                }
-                private static void _Screen_SetImplementationValue(global::LightSwitchApplication.Menu.DetailsClass d, string v)
-                {
-                    d.ImplementationEntity.Screen = v;
-                }
-                private static void _Screen_OnValueChanged(global::LightSwitchApplication.Menu e)
-                {
-                    e.Screen_Changed();
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -779,9 +709,6 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string>.Data _Name;
-            
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string>.Data _Screen;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Menu, global::LightSwitchApplication.Menu.DetailsClass, string>.Data _CreatedBy;

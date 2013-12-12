@@ -288,12 +288,12 @@ namespace LightSwitchApplication
         /// <summary>
         /// No Modeled Description Available
         /// </summary>
-        /// <param name="MenuName">
+        /// <param name="menuName">
         /// No Modeled Description Available
         /// </param>
-        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.MenuTile> TilesForMenu(string MenuName)
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.MenuTile> TilesForMenu(string menuName)
         {
-            return this.Details.Methods.TilesForMenu.CreateInvocation(MenuName).Execute();
+            return this.Details.Methods.TilesForMenu.CreateInvocation(menuName).Execute();
         }
         
         #endregion
@@ -808,6 +808,22 @@ namespace LightSwitchApplication
             return this.Details.Methods.UserRegistrations_SingleOrDefault.CreateInvocation(UserName).Execute();
         }
         
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserRegistration> NonSecurityAdministrators()
+        {
+            return this.Details.Methods.NonSecurityAdministrators.CreateInvocation().Execute();
+        }
+        
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserRegistration> CurrentUser()
+        {
+            return this.Details.Methods.CurrentUser.CreateInvocation().Execute();
+        }
+        
         #endregion
     
         #region Details Class
@@ -933,6 +949,22 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.LsSecurityData.DetailsClass.MethodSetProperties.UserRegistrations_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration> NonSecurityAdministrators
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.LsSecurityData.DetailsClass.MethodSetProperties.NonSecurityAdministrators) as global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration> CurrentUser
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.LsSecurityData.DetailsClass.MethodSetProperties.CurrentUser) as global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>;
                     }
                 }
                 
@@ -1097,6 +1129,26 @@ namespace LightSwitchApplication
                     c(d, ref d._UserRegistrations_SingleOrDefault, sf);
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Entry
+                    NonSecurityAdministrators = new global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Entry(
+                        "NonSecurityAdministrators",
+                        global::LightSwitchApplication.LsSecurityData.DetailsClass.MethodSetProperties._NonSecurityAdministrators_Stub);
+                private static void _NonSecurityAdministrators_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.LsSecurityData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Data> c, global::LightSwitchApplication.LsSecurityData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._NonSecurityAdministrators, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Entry
+                    CurrentUser = new global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Entry(
+                        "CurrentUser",
+                        global::LightSwitchApplication.LsSecurityData.DetailsClass.MethodSetProperties._CurrentUser_Stub);
+                private static void _CurrentUser_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.LsSecurityData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Data> c, global::LightSwitchApplication.LsSecurityData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CurrentUser, sf);
+                }
+    
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -1201,6 +1253,12 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Data _UserRegistrations_SingleOrDefault;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Data _NonSecurityAdministrators;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.LsSecurityData, global::LightSwitchApplication.LsSecurityData.DetailsClass, global::LightSwitchApplication.UserRegistration>.Data _CurrentUser;
             
         }
     

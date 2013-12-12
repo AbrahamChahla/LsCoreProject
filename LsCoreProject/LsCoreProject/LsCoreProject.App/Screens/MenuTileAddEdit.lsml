@@ -142,9 +142,13 @@
                   </ContentItem>
                 </ContentItem>
                 <ContentItem
-                  Name="OnCoick"
+                  Name="OnClick"
                   Kind="Value"
                   DataType=":String?">
+                  <ContentItem.Attributes>
+                    <DisplayName
+                      Value="On Click Show Screen" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -412,7 +416,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <ConstantExpression
-                          Value="msls-remove"
+                          Value="msls-trash"
                           ResultType=":String" />
                       </ChainExpression>
                     </ScreenExpressionTree>

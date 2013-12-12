@@ -183,16 +183,16 @@ namespace LightSwitchApplication
         partial void TilesForMenu_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        partial void TilesForMenu_Executing(string MenuName);
+        partial void TilesForMenu_Executing(string menuName);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void TilesForMenu_PreprocessQuery(string MenuName, ref global::System.Linq.IQueryable<global::LightSwitchApplication.MenuTile> query);
+        partial void TilesForMenu_PreprocessQuery(string menuName, ref global::System.Linq.IQueryable<global::LightSwitchApplication.MenuTile> query);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        partial void TilesForMenu_Executed(string MenuName, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.MenuTile> result);
+        partial void TilesForMenu_Executed(string menuName, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.MenuTile> result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        partial void TilesForMenu_ExecuteFailed(string MenuName, global::System.Exception exception);
+        partial void TilesForMenu_ExecuteFailed(string menuName, global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Query_Executing(global::Microsoft.LightSwitch.QueryExecutingDescriptor queryDescriptor);
@@ -750,6 +750,36 @@ namespace LightSwitchApplication
         partial void SaveChanges_ExecuteFailed(global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void NonSecurityAdministrators_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        partial void NonSecurityAdministrators_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void NonSecurityAdministrators_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserRegistration> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        partial void NonSecurityAdministrators_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserRegistration> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        partial void NonSecurityAdministrators_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CurrentUser_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        partial void CurrentUser_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CurrentUser_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserRegistration> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        partial void CurrentUser_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserRegistration> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        partial void CurrentUser_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Query_Executing(global::Microsoft.LightSwitch.QueryExecutingDescriptor queryDescriptor);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1141,6 +1171,72 @@ namespace LightSwitchApplication
             private static void __SaveChanges_Failed(global::LightSwitchApplication.LsSecurityDataService d, object[] args, global::System.Exception ex)
             {
                 d.SaveChanges_ExecuteFailed(ex);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.LsSecurityDataService, global::LightSwitchApplication.UserRegistration>
+                __NonSecurityAdministratorsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.LsSecurityDataService, global::LightSwitchApplication.UserRegistration>(
+                    "NonSecurityAdministrators",
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__NonSecurityAdministrators_CanExecute,
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__NonSecurityAdministrators_Executing,
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__NonSecurityAdministrators_Executed,
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__NonSecurityAdministrators_Failed,
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__NonSecurityAdministrators_PreprocessQuery);
+            private static bool __NonSecurityAdministrators_CanExecute(global::LightSwitchApplication.LsSecurityDataService d, bool r)
+            {
+                d.NonSecurityAdministrators_CanExecute(ref r);
+                return r;
+            }
+            private static void __NonSecurityAdministrators_Executing(global::LightSwitchApplication.LsSecurityDataService d, object[] args)
+            {
+                d.NonSecurityAdministrators_Executing();
+            }
+            private static void __NonSecurityAdministrators_Executed(global::LightSwitchApplication.LsSecurityDataService d, object[] args)
+            {
+                d.NonSecurityAdministrators_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserRegistration>)args[0]);
+            }
+            private static void __NonSecurityAdministrators_Failed(global::LightSwitchApplication.LsSecurityDataService d, object[] args, global::System.Exception ex)
+            {
+                d.NonSecurityAdministrators_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __NonSecurityAdministrators_PreprocessQuery(global::LightSwitchApplication.LsSecurityDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserRegistration> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserRegistration>)args[0];
+                d.NonSecurityAdministrators_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.LsSecurityDataService, global::LightSwitchApplication.UserRegistration>
+                __CurrentUserEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.LsSecurityDataService, global::LightSwitchApplication.UserRegistration>(
+                    "CurrentUser",
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__CurrentUser_CanExecute,
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__CurrentUser_Executing,
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__CurrentUser_Executed,
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__CurrentUser_Failed,
+                    global::LightSwitchApplication.LsSecurityDataService.DetailsClass.__CurrentUser_PreprocessQuery);
+            private static bool __CurrentUser_CanExecute(global::LightSwitchApplication.LsSecurityDataService d, bool r)
+            {
+                d.CurrentUser_CanExecute(ref r);
+                return r;
+            }
+            private static void __CurrentUser_Executing(global::LightSwitchApplication.LsSecurityDataService d, object[] args)
+            {
+                d.CurrentUser_Executing();
+            }
+            private static void __CurrentUser_Executed(global::LightSwitchApplication.LsSecurityDataService d, object[] args)
+            {
+                d.CurrentUser_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserRegistration>)args[0]);
+            }
+            private static void __CurrentUser_Failed(global::LightSwitchApplication.LsSecurityDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CurrentUser_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __CurrentUser_PreprocessQuery(global::LightSwitchApplication.LsSecurityDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserRegistration> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserRegistration>)args[0];
+                d.CurrentUser_PreprocessQuery(ref query);
+                return query;
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]

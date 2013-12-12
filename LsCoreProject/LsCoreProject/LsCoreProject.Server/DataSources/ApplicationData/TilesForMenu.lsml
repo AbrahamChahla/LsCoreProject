@@ -26,7 +26,7 @@
             </BinaryExpression.Left>
             <BinaryExpression.Right>
               <ParameterExpression
-                Parameter="MenuName" />
+                Parameter="menuName" />
             </BinaryExpression.Right>
           </BinaryExpression>
         </QueryFilterExpressionTree>
@@ -38,7 +38,7 @@
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
-        Name="MenuName"
+        Name="menuName"
         ParameterType=":String?" />
       <QueryOperation.SortCriteria>
         <SortCriterion>

@@ -21,17 +21,29 @@ namespace LightSwitchApplication
         /// </summary>
         public const string SecurityAdministration = global::Microsoft.LightSwitch.Security.ApplicationPermissions.SecurityAdministration;
         /// <summary>
-        /// Add
+        /// SecurityTile
         /// </summary>
-        public const string Add = "LightSwitchApplication:Add";
+        public const string SecurityTile = "LightSwitchApplication:SecurityTile";
         /// <summary>
-        /// Edit
+        /// UsersTile
         /// </summary>
-        public const string Edit = "LightSwitchApplication:Edit";
+        public const string UsersTile = "LightSwitchApplication:UsersTile";
         /// <summary>
-        /// Delete
+        /// RolesTile
         /// </summary>
-        public const string Delete = "LightSwitchApplication:Delete";
+        public const string RolesTile = "LightSwitchApplication:RolesTile";
+        /// <summary>
+        /// PermissionsTile
+        /// </summary>
+        public const string PermissionsTile = "LightSwitchApplication:PermissionsTile";
+        /// <summary>
+        /// MenuAdminTile
+        /// </summary>
+        public const string MenuAdminTile = "LightSwitchApplication:MenuAdminTile";
+        /// <summary>
+        /// IconsTile
+        /// </summary>
+        public const string IconsTile = "LightSwitchApplication:IconsTile";
 
         /// <summary>
         /// Gets all permissions defined for the application.  This includes system and user-defined permissions.

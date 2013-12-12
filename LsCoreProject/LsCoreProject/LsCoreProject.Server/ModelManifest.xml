@@ -2,16 +2,18 @@
 <ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Documents>
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\ApplicationData\Icons.lsml" Checksum="99AB996309E931D1AB7D03C563D4CD06A6C2D096176F4EA5C1D2C833C028096E" />
-    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\ApplicationData\Menus.lsml" Checksum="D1DC8F2AD40AF802FAF4A845A128B3CFB5990AC03352C20B8800F0BCFFAEB37D" />
-    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\ApplicationData\MenuTiles.lsml" Checksum="3B9C9ECCEA6F858A0C292846A6E930982C22135909482DE624C4A61DC5BBA3E2" />
-    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\ApplicationData\TilesForMenu.lsml" Checksum="BA1A524FCD76D88CF560A1AAD1974110B65FF0077F8518F88B69B618A61FC83B" />
+    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\ApplicationData\Menus.lsml" Checksum="E12EA12476E215B1DC551270C8DA91194D20A639BE80FD9CDE77491E02E6EFC6" />
+    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\ApplicationData\MenuTiles.lsml" Checksum="E73BFF4676AD45F117F67F71452AE1ED80F7C4504DC0482B29E623CEB4AA3E20" />
+    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\ApplicationData\TilesForMenu.lsml" Checksum="1B28FDEE8542FC10B20CF01304148F921539021719E48DD3D5B4A64FF472F55C" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\Permissions.lsml" Checksum="E98672752492C33C0D69980594205C4047637D06C4AA8C2F9B4840F5C21A6C21" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\RoleAssignments.lsml" Checksum="BE78F940AF15360C863F00F610E4CE6902BB0ADC8935C3195F1C6FFF0FCDD6DA" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\RolePermissions1.lsml" Checksum="230BC9341F8B6F4045071D2913372B5F06D139F400449002824511017CCF3BDB" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\Roles.lsml" Checksum="19ECE435DC05F1F9965C28BDEE5CD0FA68CFFE0CA36B1EEDFD7E38D23C7558C4" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\UserRegistrations.lsml" Checksum="AC6BC974E8402B002568D9B5D775F8807E942311C7A4C3C86F77E2084AD9A4EA" />
+    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\NonSecurityAdministrators.lsml" Checksum="15F5B42304B98822B49AF55D69EE2BD1550C9A2CAEA7FF56FBF5AEFEAF77427F" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\Properties\DataSources\ApplicationData.lsml" Checksum="4269B7A1C607D3AEA1D34BA816EE24BE223A014F83A97F863157835AA09C6154" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\Properties\DataSources\LsSecurityData.lsml" Checksum="F9214B46989DEF2938D4971F5C70931F5498EBA28275BCB9BEF93350E74643D2" />
-    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\Properties\Service.lsml" Checksum="1FF3239A9B14FE01B8C3F4F9E23E1927D0BB76AB8723CC9A8DA4BE5F651D3C6D" />
+    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\Properties\Service.lsml" Checksum="742330A7951F499CE3E9886CC03D044B44F7741F8310D5B2710243DF427FF792" />
+    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\CurrentUser.lsml" Checksum="42A450CA34CF426C6A6CEF82A440E2576593EDF03F8FB845A7AED72F990FF6DD" />
   </Documents>
 </ModelDocumentManifest>

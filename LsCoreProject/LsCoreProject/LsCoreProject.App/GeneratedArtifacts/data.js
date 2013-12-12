@@ -194,9 +194,6 @@ window.myapp = msls.application;
         /// <field name="Name" type="String">
         /// Gets or sets the name for this menu.
         /// </field>
-        /// <field name="Screen" type="String">
-        /// Gets or sets the screen for this menu.
-        /// </field>
         /// <field name="MenuTiles" type="msls.EntityCollection" elementType="msls.application.MenuTile">
         /// Gets the menuTiles for this menu.
         /// </field>
@@ -424,7 +421,6 @@ window.myapp = msls.application;
         Menu: $defineEntity(Menu, [
             { name: "Id", type: Number },
             { name: "Name", type: String },
-            { name: "Screen", type: String },
             { name: "MenuTiles", kind: "collection", elementType: MenuTile },
             { name: "CreatedBy", type: String, isReadOnly: true },
             { name: "Created", type: Date, isReadOnly: true },
@@ -501,6 +497,22 @@ window.myapp = msls.application;
                         lightSwitchApplication.rootUri + "/LsSecurityData.svc" + "/UserRegistrations(" + "UserName=" + $toODataString(UserName, "String?") + ")"
                     );
                 }
+            },
+            {
+                name: "NonSecurityAdministrators", value: function () {
+                    return new $DataServiceQuery({ _entitySet: this.UserRegistrations },
+                        lightSwitchApplication.rootUri + "/LsSecurityData.svc" + "/NonSecurityAdministrators()",
+                        {
+                        });
+                }
+            },
+            {
+                name: "CurrentUser", value: function () {
+                    return new $DataServiceQuery({ _entitySet: this.UserRegistrations },
+                        lightSwitchApplication.rootUri + "/LsSecurityData.svc" + "/CurrentUser()",
+                        {
+                        });
+                }
             }
         ]),
 
@@ -531,11 +543,11 @@ window.myapp = msls.application;
                 }
             },
             {
-                name: "TilesForMenu", value: function (MenuName) {
+                name: "TilesForMenu", value: function (menuName) {
                     return new $DataServiceQuery({ _entitySet: this.MenuTiles },
                         lightSwitchApplication.rootUri + "/ApplicationData.svc" + "/TilesForMenu()",
                         {
-                            MenuName: $toODataString(MenuName, "String?")
+                            menuName: $toODataString(menuName, "String?")
                         });
                 }
             }

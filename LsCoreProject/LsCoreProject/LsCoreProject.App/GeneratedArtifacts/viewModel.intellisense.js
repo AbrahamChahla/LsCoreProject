@@ -4,58 +4,58 @@
 
     var $element = document.createElement("div");
 
-    lightSwitchApplication.Admin.prototype._$contentItems = {
+    lightSwitchApplication.Security.prototype._$contentItems = {
         Tabs: {
             _$class: msls.ContentItem,
             _$name: "Tabs",
             _$parentName: "RootContentItem",
-            screen: lightSwitchApplication.Admin
+            screen: lightSwitchApplication.Security
         },
         Group: {
             _$class: msls.ContentItem,
             _$name: "Group",
             _$parentName: "Tabs",
-            screen: lightSwitchApplication.Admin,
-            data: lightSwitchApplication.Admin,
-            value: lightSwitchApplication.Admin
+            screen: lightSwitchApplication.Security,
+            data: lightSwitchApplication.Security,
+            value: lightSwitchApplication.Security
         },
         ScreenContent: {
             _$class: msls.ContentItem,
             _$name: "ScreenContent",
             _$parentName: "Group",
-            screen: lightSwitchApplication.Admin,
-            data: lightSwitchApplication.Admin,
-            value: lightSwitchApplication.Admin
+            screen: lightSwitchApplication.Security,
+            data: lightSwitchApplication.Security,
+            value: lightSwitchApplication.Security
         },
         Popups: {
             _$class: msls.ContentItem,
             _$name: "Popups",
             _$parentName: "RootContentItem",
-            screen: lightSwitchApplication.Admin
+            screen: lightSwitchApplication.Security
         }
     };
 
-    msls._addEntryPoints(lightSwitchApplication.Admin, {
+    msls._addEntryPoints(lightSwitchApplication.Security, {
         /// <field>
-        /// Called when a new Admin screen is created.
-        /// <br/>created(msls.application.Admin screen)
+        /// Called when a new Security screen is created.
+        /// <br/>created(msls.application.Security screen)
         /// </field>
-        created: [lightSwitchApplication.Admin],
+        created: [lightSwitchApplication.Security],
         /// <field>
-        /// Called before changes on an active Admin screen are applied.
-        /// <br/>beforeApplyChanges(msls.application.Admin screen)
+        /// Called before changes on an active Security screen are applied.
+        /// <br/>beforeApplyChanges(msls.application.Security screen)
         /// </field>
-        beforeApplyChanges: [lightSwitchApplication.Admin],
+        beforeApplyChanges: [lightSwitchApplication.Security],
         /// <field>
         /// Called after the Group content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        Group_postRender: [$element, function () { return new lightSwitchApplication.Admin().findContentItem("Group"); }],
+        Group_postRender: [$element, function () { return new lightSwitchApplication.Security().findContentItem("Group"); }],
         /// <field>
         /// Called to render the ScreenContent content item.
         /// <br/>render(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        ScreenContent_render: [$element, function () { return new lightSwitchApplication.Admin().findContentItem("ScreenContent"); }]
+        ScreenContent_render: [$element, function () { return new lightSwitchApplication.Security().findContentItem("ScreenContent"); }]
     });
 
     lightSwitchApplication.IconAddEdit.prototype._$contentItems = {
@@ -321,14 +321,6 @@
             data: lightSwitchApplication.MenuAddEdit,
             value: String
         },
-        Screen: {
-            _$class: msls.ContentItem,
-            _$name: "Screen",
-            _$parentName: "Details",
-            screen: lightSwitchApplication.MenuAddEdit,
-            data: lightSwitchApplication.MenuAddEdit,
-            value: String
-        },
         Popups: {
             _$class: msls.ContentItem,
             _$name: "Popups",
@@ -357,12 +349,7 @@
         /// Called after the Name content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        Name_postRender: [$element, function () { return new lightSwitchApplication.MenuAddEdit().findContentItem("Name"); }],
-        /// <field>
-        /// Called after the Screen content item has been rendered.
-        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
-        /// </field>
-        Screen_postRender: [$element, function () { return new lightSwitchApplication.MenuAddEdit().findContentItem("Screen"); }]
+        Name_postRender: [$element, function () { return new lightSwitchApplication.MenuAddEdit().findContentItem("Name"); }]
     });
 
     lightSwitchApplication.MenusBrowse.prototype._$contentItems = {
@@ -421,6 +408,16 @@
         /// <br/>beforeApplyChanges(msls.application.MenusBrowse screen)
         /// </field>
         beforeApplyChanges: [lightSwitchApplication.MenusBrowse],
+        /// <field>
+        /// Called to determine if the ExportAll method can be executed.
+        /// <br/>canExecute(msls.application.MenusBrowse screen)
+        /// </field>
+        ExportAll_canExecute: [lightSwitchApplication.MenusBrowse],
+        /// <field>
+        /// Called to execute the ExportAll method.
+        /// <br/>execute(msls.application.MenusBrowse screen)
+        /// </field>
+        ExportAll_execute: [lightSwitchApplication.MenusBrowse],
         /// <field>
         /// Called after the MenuList content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
@@ -533,9 +530,9 @@
             data: lightSwitchApplication.Permission,
             value: lightSwitchApplication.Permission
         },
-        OnCoick: {
+        OnClick: {
             _$class: msls.ContentItem,
-            _$name: "OnCoick",
+            _$name: "OnClick",
             _$parentName: "left",
             screen: lightSwitchApplication.MenuTileAddEdit,
             data: lightSwitchApplication.MenuTile,
@@ -754,10 +751,10 @@
         /// </field>
         RowTemplate2_postRender: [$element, function () { return new lightSwitchApplication.MenuTileAddEdit().findContentItem("RowTemplate2"); }],
         /// <field>
-        /// Called after the OnCoick content item has been rendered.
+        /// Called after the OnClick content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        OnCoick_postRender: [$element, function () { return new lightSwitchApplication.MenuTileAddEdit().findContentItem("OnCoick"); }],
+        OnClick_postRender: [$element, function () { return new lightSwitchApplication.MenuTileAddEdit().findContentItem("OnClick"); }],
         /// <field>
         /// Called after the right content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
@@ -1676,6 +1673,14 @@
             data: lightSwitchApplication.UserRegistrationAddEdit,
             value: String
         },
+        ConfirmPassword: {
+            _$class: msls.ContentItem,
+            _$name: "ConfirmPassword",
+            _$parentName: "Details",
+            screen: lightSwitchApplication.UserRegistrationAddEdit,
+            data: lightSwitchApplication.UserRegistrationAddEdit,
+            value: String
+        },
         Popups: {
             _$class: msls.ContentItem,
             _$name: "Popups",
@@ -1714,7 +1719,12 @@
         /// Called after the Password content item has been rendered.
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
-        Password_postRender: [$element, function () { return new lightSwitchApplication.UserRegistrationAddEdit().findContentItem("Password"); }]
+        Password_postRender: [$element, function () { return new lightSwitchApplication.UserRegistrationAddEdit().findContentItem("Password"); }],
+        /// <field>
+        /// Called after the ConfirmPassword content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        ConfirmPassword_postRender: [$element, function () { return new lightSwitchApplication.UserRegistrationAddEdit().findContentItem("ConfirmPassword"); }]
     });
 
     lightSwitchApplication.UserRegistrationsBrowse.prototype._$contentItems = {
@@ -2036,6 +2046,60 @@
         /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
         /// </field>
         RowTemplate2_postRender: [$element, function () { return new lightSwitchApplication.UserRoleAssignmentAddEdit().findContentItem("RowTemplate2"); }]
+    });
+
+    lightSwitchApplication.MenuExport.prototype._$contentItems = {
+        Tabs: {
+            _$class: msls.ContentItem,
+            _$name: "Tabs",
+            _$parentName: "RootContentItem",
+            screen: lightSwitchApplication.MenuExport
+        },
+        Group: {
+            _$class: msls.ContentItem,
+            _$name: "Group",
+            _$parentName: "Tabs",
+            screen: lightSwitchApplication.MenuExport,
+            data: lightSwitchApplication.MenuExport,
+            value: lightSwitchApplication.MenuExport
+        },
+        JsonMenuData: {
+            _$class: msls.ContentItem,
+            _$name: "JsonMenuData",
+            _$parentName: "Group",
+            screen: lightSwitchApplication.MenuExport,
+            data: lightSwitchApplication.MenuExport,
+            value: String
+        },
+        Popups: {
+            _$class: msls.ContentItem,
+            _$name: "Popups",
+            _$parentName: "RootContentItem",
+            screen: lightSwitchApplication.MenuExport
+        }
+    };
+
+    msls._addEntryPoints(lightSwitchApplication.MenuExport, {
+        /// <field>
+        /// Called when a new MenuExport screen is created.
+        /// <br/>created(msls.application.MenuExport screen)
+        /// </field>
+        created: [lightSwitchApplication.MenuExport],
+        /// <field>
+        /// Called before changes on an active MenuExport screen are applied.
+        /// <br/>beforeApplyChanges(msls.application.MenuExport screen)
+        /// </field>
+        beforeApplyChanges: [lightSwitchApplication.MenuExport],
+        /// <field>
+        /// Called after the Group content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        Group_postRender: [$element, function () { return new lightSwitchApplication.MenuExport().findContentItem("Group"); }],
+        /// <field>
+        /// Called after the JsonMenuData content item has been rendered.
+        /// <br/>postRender(HTMLElement element, msls.ContentItem contentItem)
+        /// </field>
+        JsonMenuData_postRender: [$element, function () { return new lightSwitchApplication.MenuExport().findContentItem("JsonMenuData"); }]
     });
 
 }(msls.application));

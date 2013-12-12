@@ -83,52 +83,9 @@
       </ScreenMethod>
     </Screen.Methods>
     <Screen.Properties>
-      <ScreenCollectionProperty
-        Name="TilesForMenu"
-        PageSize="45"
-        PropertyType="CollectionView$MenuTile">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition
-            Name="TilesForMenuQuery"
-            ReturnType="MenuTile*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression
-                  Member="ApplicationData/Members[TilesForMenu]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-            <ScreenQueryDefinition.Includes>
-              <IncludeCriterion
-                Mode="Included">
-                <ChainExpression>
-                  <MemberExpression
-                    Member="Icon" />
-                </ChainExpression>
-              </IncludeCriterion>
-            </ScreenQueryDefinition.Includes>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression
-              Target="Start/Properties[TilesForMenu]/Query">
-              <ArgumentExpression
-                Parameter="MenuName">
-                <ChainExpression>
-                  <MemberExpression
-                    Member="Start/Properties[MenuName]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
       <ScreenProperty
-        Name="MenuName"
-        PropertyType=":String?" />
+        Name="itgReady"
+        PropertyType=":Boolean?" />
     </Screen.Properties>
   </Screen>
   <Application.Methods>

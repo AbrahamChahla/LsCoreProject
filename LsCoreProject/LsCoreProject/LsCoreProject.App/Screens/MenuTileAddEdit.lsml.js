@@ -1,5 +1,5 @@
 ﻿/// <reference path="../GeneratedArtifacts/viewModel.js" />
-/// <reference path="../Scripts/itg-msls-helpers.js" />
+/// <reference path="../Scripts/itgLsHelper.js" />
 
 
 myapp.MenuTileAddEdit.DeleteSelectedTile_execute = function (screen) {
@@ -23,7 +23,7 @@ myapp.MenuTileAddEdit.Icon1_render = function (element, contentItem) {
 
 	// Render our modal pick list of icons
 	// call our helper function, easy!
-	setupIconPicker(element, contentItem);
+	itgLsHelper.iconPicker(element, contentItem);
 
 };
 
@@ -31,36 +31,47 @@ myapp.MenuTileAddEdit.Icon1_render = function (element, contentItem) {
 // We are using the jquery plugin Spectrum color picker
 myapp.MenuTileAddEdit.TileColor_render = function (element, contentItem) {
 
-	setupSpectrumColorPicker(element, contentItem);
+	itgLsHelper.colorPicker(element, contentItem);
 
 };
 myapp.MenuTileAddEdit.StatusBgColor_render = function (element, contentItem) {
 
-	setupSpectrumColorPicker(element, contentItem);
+	itgLsHelper.colorPicker(element, contentItem);
 
 };
 myapp.MenuTileAddEdit.StatusFgColor_render = function (element, contentItem) {
 
-	setupSpectrumColorPicker(element, contentItem);
+	itgLsHelper.colorPicker(element, contentItem);
 
 }; myapp.MenuTileAddEdit.BadgeBgColor_render = function (element, contentItem) {
 
-	setupSpectrumColorPicker(element, contentItem);
+	itgLsHelper.colorPicker(element, contentItem);
 
 };
 myapp.MenuTileAddEdit.BadgeFgColor_render = function (element, contentItem) {
 
-	setupSpectrumColorPicker(element, contentItem);
+	itgLsHelper.colorPicker(element, contentItem);
 
 };
 myapp.MenuTileAddEdit.IconBgColor_render = function (element, contentItem) {
 
-	setupSpectrumColorPicker(element, contentItem);
+	itgLsHelper.colorPicker(element, contentItem);
 
 };
 myapp.MenuTileAddEdit.IconFgColor_render = function (element, contentItem) {
 
-	setupSpectrumColorPicker(element, contentItem);
+	itgLsHelper.colorPicker(element, contentItem);
 
 };
 
+
+myapp.MenuTileAddEdit.created = function (screen) {
+
+	// Go get our OnClick field (contentItem)
+	var onClickContentItem = screen.findContentItem("OnClick");
+
+	// Update our screen picker with the list of screens
+	// This should be within screen created vs post render of the field
+	itgLsHelper.screenPicker(onClickContentItem);
+
+};

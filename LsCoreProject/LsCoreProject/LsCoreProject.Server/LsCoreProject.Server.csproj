@@ -193,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSources\ApplicationData\_ApplicationDataService.lsml.cs" />
+    <Compile Include="DataSources\LsSecurityData\_LsSecurityDataService.lsml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\EdmxFile1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -229,6 +230,12 @@
     <LightSwitchModel Include="DataSources\ApplicationData\MenuTiles.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\TilesForMenu.lsml">
       <DependentUpon>MenuTiles.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\LsSecurityData\NonSecurityAdministrators.lsml">
+      <DependentUpon>UserRegistrations.lsml</DependentUpon>
+    </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\LsSecurityData\CurrentUser.lsml">
+      <DependentUpon>UserRegistrations.lsml</DependentUpon>
     </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

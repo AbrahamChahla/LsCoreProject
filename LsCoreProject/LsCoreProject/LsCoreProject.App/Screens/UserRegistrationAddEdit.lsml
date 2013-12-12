@@ -72,6 +72,19 @@
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
             </ContentItem>
+            <ContentItem
+              Name="ConfirmPassword"
+              Kind="Value"
+              DataType=":String?">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="UserRegistrationAddEdit/Properties[ConfirmPassword]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
           </ContentItem>
         </ContentItem>
         <ContentItem
@@ -134,6 +147,9 @@
           <IsParameter />
         </ScreenProperty.Attributes>
       </ScreenProperty>
+      <ScreenProperty
+        Name="ConfirmPassword"
+        PropertyType=":String?" />
     </Screen.Properties>
   </Screen>
   <Application.Methods>

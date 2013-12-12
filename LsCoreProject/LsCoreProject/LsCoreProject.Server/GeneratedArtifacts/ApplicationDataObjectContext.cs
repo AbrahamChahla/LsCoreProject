@@ -399,14 +399,12 @@ namespace LightSwitchApplication.Implementation
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="screen">Initial value of the Screen property.</param>
         /// <param name="rowVersion">Initial value of the RowVersion property.</param>
-        public static Menu CreateMenu(global::System.Int32 id, global::System.String name, global::System.String screen, global::System.Byte[] rowVersion)
+        public static Menu CreateMenu(global::System.Int32 id, global::System.String name, global::System.Byte[] rowVersion)
         {
             Menu menu = new Menu();
             menu.Id = id;
             menu.Name = name;
-            menu.Screen = screen;
             menu.RowVersion = rowVersion;
             return menu;
         }
@@ -465,30 +463,6 @@ namespace LightSwitchApplication.Implementation
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Screen
-        {
-            get
-            {
-                return _Screen;
-            }
-            set
-            {
-                OnScreenChanging(value);
-                ReportPropertyChanging("Screen");
-                _Screen = value;
-                ReportPropertyChanged("Screen");
-                OnScreenChanged();
-            }
-        }
-        private global::System.String _Screen;
-        partial void OnScreenChanging(global::System.String value);
-        partial void OnScreenChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

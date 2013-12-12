@@ -37,14 +37,14 @@ namespace LightSwitchApplication.Implementation
         }
     
     #region Queries
-        public global::System.Linq.IQueryable<global::LightSwitchApplication.Implementation.MenuTile> TilesForMenu(string MenuName)
+        public global::System.Linq.IQueryable<global::LightSwitchApplication.Implementation.MenuTile> TilesForMenu(string menuName)
         {
             global::System.Linq.IQueryable<global::LightSwitchApplication.Implementation.MenuTile> query;
             query = global::System.Linq.Queryable.ThenBy(
                 global::System.Linq.Queryable.OrderBy(
                     global::System.Linq.Queryable.Where(
                         this.GetQuery<global::LightSwitchApplication.Implementation.MenuTile>("MenuTiles"),
-                        (m) => (m.Menu.Name.CompareTo(MenuName) == 0)),
+                        (m) => (m.Menu.Name.CompareTo(menuName) == 0)),
                     (m) => m.Order),
                 (m) => m.Name);
             return query;
@@ -127,6 +127,22 @@ namespace LightSwitchApplication.Implementation
         }
     
     #region Queries
+        public global::System.Linq.IQueryable<global::LightSwitchApplication.Implementation.UserRegistration> NonSecurityAdministrators()
+        {
+            global::System.Linq.IQueryable<global::LightSwitchApplication.Implementation.UserRegistration> query;
+            query = global::System.Linq.Queryable.OrderBy(
+                this.GetQuery<global::LightSwitchApplication.Implementation.UserRegistration>("UserRegistrations"),
+                (u) => u.FullName);
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::LightSwitchApplication.Implementation.UserRegistration> CurrentUser()
+        {
+            global::System.Linq.IQueryable<global::LightSwitchApplication.Implementation.UserRegistration> query;
+            query = this.GetQuery<global::LightSwitchApplication.Implementation.UserRegistration>("UserRegistrations");
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods

@@ -8,9 +8,9 @@
         $toODataString = msls._toODataString,
         $defineShowScreen = msls._defineShowScreen;
 
-    function Admin(parameters, dataWorkspace) {
+    function Security(parameters, dataWorkspace) {
         /// <summary>
-        /// Represents the Admin screen.
+        /// Represents the Security screen.
         /// </summary>
         /// <param name="parameters" type="Array">
         /// An array of screen parameter values.
@@ -18,19 +18,13 @@
         /// <param name="dataWorkspace" type="msls.application.DataWorkspace" optional="true">
         /// An existing data workspace for this screen to use. By default, a new data workspace is created.
         /// </param>
-        /// <field name="TilesForMenu" type="msls.VisualCollection" elementType="msls.application.MenuTile">
-        /// Gets the tilesForMenu for this screen.
-        /// </field>
-        /// <field name="MenuName" type="String">
-        /// Gets or sets the menuName for this screen.
-        /// </field>
-        /// <field name="details" type="msls.application.Admin.Details">
+        /// <field name="details" type="msls.application.Security.Details">
         /// Gets the details for this screen.
         /// </field>
         if (!dataWorkspace) {
             dataWorkspace = new lightSwitchApplication.DataWorkspace();
         }
-        $Screen.call(this, dataWorkspace, "Admin", parameters);
+        $Screen.call(this, dataWorkspace, "Security", parameters);
     }
 
     function IconAddEdit(parameters, dataWorkspace) {
@@ -357,11 +351,8 @@
         /// <param name="dataWorkspace" type="msls.application.DataWorkspace" optional="true">
         /// An existing data workspace for this screen to use. By default, a new data workspace is created.
         /// </param>
-        /// <field name="TilesForMenu" type="msls.VisualCollection" elementType="msls.application.MenuTile">
-        /// Gets the tilesForMenu for this screen.
-        /// </field>
-        /// <field name="MenuName" type="String">
-        /// Gets or sets the menuName for this screen.
+        /// <field name="itgReady" type="Boolean">
+        /// Gets or sets the itgReady for this screen.
         /// </field>
         /// <field name="details" type="msls.application.Start.Details">
         /// Gets the details for this screen.
@@ -384,6 +375,9 @@
         /// </param>
         /// <field name="UserRegistration" type="msls.application.UserRegistration">
         /// Gets or sets the userRegistration for this screen.
+        /// </field>
+        /// <field name="ConfirmPassword" type="String">
+        /// Gets or sets the confirmPassword for this screen.
         /// </field>
         /// <field name="details" type="msls.application.UserRegistrationAddEdit.Details">
         /// Gets the details for this screen.
@@ -463,16 +457,31 @@
         $Screen.call(this, dataWorkspace, "UserRoleAssignmentAddEdit", parameters);
     }
 
+    function MenuExport(parameters, dataWorkspace) {
+        /// <summary>
+        /// Represents the MenuExport screen.
+        /// </summary>
+        /// <param name="parameters" type="Array">
+        /// An array of screen parameter values.
+        /// </param>
+        /// <param name="dataWorkspace" type="msls.application.DataWorkspace" optional="true">
+        /// An existing data workspace for this screen to use. By default, a new data workspace is created.
+        /// </param>
+        /// <field name="JsonMenuData" type="String">
+        /// Gets or sets the jsonMenuData for this screen.
+        /// </field>
+        /// <field name="details" type="msls.application.MenuExport.Details">
+        /// Gets the details for this screen.
+        /// </field>
+        if (!dataWorkspace) {
+            dataWorkspace = new lightSwitchApplication.DataWorkspace();
+        }
+        $Screen.call(this, dataWorkspace, "MenuExport", parameters);
+    }
+
     msls._addToNamespace("msls.application", {
 
-        Admin: $defineScreen(Admin, [
-            {
-                name: "TilesForMenu", kind: "collection", elementType: lightSwitchApplication.MenuTile,
-                createQuery: function (MenuName) {
-                    return this.dataWorkspace.ApplicationData.TilesForMenu(MenuName).expand("Icon");
-                }
-            },
-            { name: "MenuName", kind: "local", type: String }
+        Security: $defineScreen(Security, [
         ], [
         ]),
 
@@ -511,6 +520,7 @@
                 }
             }
         ], [
+            { name: "ExportAll" }
         ]),
 
         MenuTileAddEdit: $defineScreen(MenuTileAddEdit, [
@@ -611,18 +621,13 @@
         ]),
 
         Start: $defineScreen(Start, [
-            {
-                name: "TilesForMenu", kind: "collection", elementType: lightSwitchApplication.MenuTile,
-                createQuery: function (MenuName) {
-                    return this.dataWorkspace.ApplicationData.TilesForMenu(MenuName).expand("Icon");
-                }
-            },
-            { name: "MenuName", kind: "local", type: String }
+            { name: "itgReady", kind: "local", type: Boolean }
         ], [
         ]),
 
         UserRegistrationAddEdit: $defineScreen(UserRegistrationAddEdit, [
-            { name: "UserRegistration", kind: "local", type: lightSwitchApplication.UserRegistration }
+            { name: "UserRegistration", kind: "local", type: lightSwitchApplication.UserRegistration },
+            { name: "ConfirmPassword", kind: "local", type: String }
         ], [
         ]),
 
@@ -630,7 +635,7 @@
             {
                 name: "UserRegistrations", kind: "collection", elementType: lightSwitchApplication.UserRegistration,
                 createQuery: function () {
-                    return this.dataWorkspace.LsSecurityData.UserRegistrations;
+                    return this.dataWorkspace.LsSecurityData.UserRegistrations.filter("(UserName eq 'leavemealone') eq false").orderBy("UserName");
                 }
             }
         ], [
@@ -661,16 +666,21 @@
         ], [
         ]),
 
-        showAdmin: $defineShowScreen(function showAdmin(options) {
+        MenuExport: $defineScreen(MenuExport, [
+            { name: "JsonMenuData", kind: "local", type: String }
+        ], [
+        ]),
+
+        showSecurity: $defineShowScreen(function showSecurity(options) {
             /// <summary>
-            /// Asynchronously navigates forward to the Admin screen.
+            /// Asynchronously navigates forward to the Security screen.
             /// </summary>
             /// <param name="options" optional="true">
             /// An object that provides one or more of the following options:<br/>- beforeShown: a function that is called after boundary behavior has been applied but before the screen is shown.<br/>+ Signature: beforeShown(screen)<br/>- afterClosed: a function that is called after boundary behavior has been applied and the screen has been closed.<br/>+ Signature: afterClosed(screen, action : msls.NavigateBackAction)
             /// </param>
             /// <returns type="WinJS.Promise" />
             var parameters = Array.prototype.slice.call(arguments, 0, 0);
-            return lightSwitchApplication.showScreen("Admin", parameters, options);
+            return lightSwitchApplication.showScreen("Security", parameters, options);
         }),
 
         showIconAddEdit: $defineShowScreen(function showIconAddEdit(Icon, options) {
@@ -899,6 +909,18 @@
             /// <returns type="WinJS.Promise" />
             var parameters = Array.prototype.slice.call(arguments, 0, 1);
             return lightSwitchApplication.showScreen("UserRoleAssignmentAddEdit", parameters, options);
+        }),
+
+        showMenuExport: $defineShowScreen(function showMenuExport(options) {
+            /// <summary>
+            /// Asynchronously navigates forward to the MenuExport screen.
+            /// </summary>
+            /// <param name="options" optional="true">
+            /// An object that provides one or more of the following options:<br/>- beforeShown: a function that is called after boundary behavior has been applied but before the screen is shown.<br/>+ Signature: beforeShown(screen)<br/>- afterClosed: a function that is called after boundary behavior has been applied and the screen has been closed.<br/>+ Signature: afterClosed(screen, action : msls.NavigateBackAction)
+            /// </param>
+            /// <returns type="WinJS.Promise" />
+            var parameters = Array.prototype.slice.call(arguments, 0, 0);
+            return lightSwitchApplication.showScreen("MenuExport", parameters, options);
         })
 
     });

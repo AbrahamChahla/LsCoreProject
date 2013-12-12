@@ -37,24 +37,45 @@
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
   <Permission
-    Name="Add">
+    Name="SecurityTile">
     <Permission.Attributes>
       <DisplayName
-        Value="Add" />
+        Value="SecurityTile" />
     </Permission.Attributes>
   </Permission>
   <Permission
-    Name="Edit">
+    Name="UsersTile">
     <Permission.Attributes>
       <DisplayName
-        Value="Edit" />
+        Value="UsersTile" />
     </Permission.Attributes>
   </Permission>
   <Permission
-    Name="Delete">
+    Name="RolesTile">
     <Permission.Attributes>
       <DisplayName
-        Value="Delete" />
+        Value="RolesTile" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="PermissionsTile">
+    <Permission.Attributes>
+      <DisplayName
+        Value="PermissionsTile" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="MenuAdminTile">
+    <Permission.Attributes>
+      <DisplayName
+        Value="MenuAdminTile" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="IconsTile">
+    <Permission.Attributes>
+      <DisplayName
+        Value="IconsTile" />
     </Permission.Attributes>
   </Permission>
 </ServiceApplication>

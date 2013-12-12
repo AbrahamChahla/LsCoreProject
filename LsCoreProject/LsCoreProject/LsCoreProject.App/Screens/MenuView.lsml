@@ -196,7 +196,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <ConstantExpression
-                          Value="msls-remove"
+                          Value="msls-trash"
                           ResultType=":String" />
                       </ChainExpression>
                     </ScreenExpressionTree>

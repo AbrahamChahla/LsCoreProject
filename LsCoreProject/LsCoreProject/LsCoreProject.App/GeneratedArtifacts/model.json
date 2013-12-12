@@ -2079,7 +2079,8 @@
           "__isSemanticType": 1,
           "id": "Microsoft.LightSwitch.Extensions:EmailAddress",
           "name": "EmailAddress",
-          "underlyingType": { "__id": ":String" }
+          "underlyingType": { "__id": ":String" },
+          "Microsoft.LightSwitch.Extensions:@EmailAddressValidation": { "domainRequired": true }
         },
         {
           "__isSemanticType": 1,
@@ -2097,13 +2098,15 @@
           "__isSemanticType": 1,
           "id": "Microsoft.LightSwitch.Extensions:PhoneNumber",
           "name": "PhoneNumber",
-          "underlyingType": { "__id": ":String" }
+          "underlyingType": { "__id": ":String" },
+          "Microsoft.LightSwitch.Extensions:@PhoneNumberValidation": { "formats": "C (AAA) NNN-NNNN;C (AAA) NNNNNNN;CAAANNNNNNN;(AAA) NNN-NNNN;(AAA) NNNNNNN;AAANNNNNNN;NNN-NNNN;NNNNNNN" }
         },
         {
           "__isSemanticType": 1,
           "id": "Microsoft.LightSwitch.Extensions:Percent",
           "name": "Percent",
           "underlyingType": { "__id": ":Decimal" },
+          "Microsoft.LightSwitch.Extensions:@FormatParameter": { "decimalDigits": 2 },
           ":@DecimalConstraint":
           {
             "scale": 9
@@ -2113,7 +2116,8 @@
           "__isSemanticType": 1,
           "id": "Microsoft.LightSwitch.Extensions:WebAddress",
           "name": "WebAddress",
-          "underlyingType": { "__id": ":String" }
+          "underlyingType": { "__id": ":String" },
+          "Microsoft.LightSwitch.Extensions:@WebAddressValidation": { }
         }
       ]
     },
@@ -2153,16 +2157,28 @@
           "name": "LightSwitchServiceApplicationGroup"
         },
         {
-          "id": "Add",
-          "name": "Add"
+          "id": "SecurityTile",
+          "name": "SecurityTile"
         },
         {
-          "id": "Edit",
-          "name": "Edit"
+          "id": "UsersTile",
+          "name": "UsersTile"
         },
         {
-          "id": "Delete",
-          "name": "Delete"
+          "id": "RolesTile",
+          "name": "RolesTile"
+        },
+        {
+          "id": "PermissionsTile",
+          "name": "PermissionsTile"
+        },
+        {
+          "id": "MenuAdminTile",
+          "name": "MenuAdminTile"
+        },
+        {
+          "id": "IconsTile",
+          "name": "IconsTile"
         },
         {
           "id": "MenuTile*",
@@ -2631,16 +2647,6 @@
             {
               "id": "Menu/Properties[Name]",
               "name": "Name",
-              "propertyType": { "__id": ":String" },
-              ":@Required": { },
-              ":@MaxLength":
-              {
-                "value": 255
-              }
-            },
-            {
-              "id": "Menu/Properties[Screen]",
-              "name": "Screen",
               "propertyType": { "__id": ":String" },
               ":@Required": { },
               ":@MaxLength":
@@ -3541,6 +3547,34 @@
                   "parameterType": { "__id": ":String?" }
                 }
               ]
+            },
+            {
+              "id": "LsSecurityData/Members[NonSecurityAdministrators]",
+              "name": "NonSecurityAdministrators",
+              "elementType": { "__id": "UserRegistration" },
+              "query": { "__id": "LsSecurityData/Members[NonSecurityAdministrators]" },
+              "returnType": { "__id": "UserRegistration*" },
+              "source":
+              {
+                "member": { "__id": "LsSecurityData/Members[UserRegistrations]" }
+              },
+              "sortCriteria":
+              [
+                {
+                  "member": { "__id": "UserRegistration/Properties[FullName]" }
+                }
+              ]
+            },
+            {
+              "id": "LsSecurityData/Members[CurrentUser]",
+              "name": "CurrentUser",
+              "elementType": { "__id": "UserRegistration" },
+              "query": { "__id": "LsSecurityData/Members[CurrentUser]" },
+              "returnType": { "__id": "UserRegistration*" },
+              "source":
+              {
+                "member": { "__id": "LsSecurityData/Members[UserRegistrations]" }
+              }
             }
           ]
         },
@@ -3751,8 +3785,8 @@
               "parameters":
               [
                 {
-                  "id": "ApplicationData/Members[TilesForMenu]/Parameters[MenuName]",
-                  "name": "MenuName",
+                  "id": "ApplicationData/Members[TilesForMenu]/Parameters[menuName]",
+                  "name": "menuName",
                   "parameterType": { "__id": ":String?" }
                 }
               ],
@@ -3979,6 +4013,11 @@
               ":@MaxLength":
               {
                 "value": 255
+              },
+              ":@SupportedValue":
+              {
+                "displayName": "a",
+                "value": "a"
               }
             },
             {
@@ -4229,9 +4268,9 @@
           ]
         },
         {
-          "displayName": "Admin",
-          "id": "Admin",
-          "name": "Admin",
+          "displayName": "Security",
+          "id": "Security",
+          "name": "Security",
           "launchMode": "Single",
           ":@SaveChangesTo":
           {
@@ -4294,80 +4333,28 @@
           "methods":
           [
             {
-              "id": "Admin/Methods[showTab]",
+              "id": "Security/Methods[showTab]",
               "name": "showTab",
               "parameters":
               [
                 {
-                  "id": "Admin/Methods[showTab]/Parameters[tabName]",
+                  "id": "Security/Methods[showTab]/Parameters[tabName]",
                   "name": "tabName",
                   "parameterType": { "__id": ":String" }
                 }
               ]
             },
             {
-              "id": "Admin/Methods[showDialog]",
+              "id": "Security/Methods[showDialog]",
               "name": "showDialog",
               "parameters":
               [
                 {
-                  "id": "Admin/Methods[showDialog]/Parameters[dialogName]",
+                  "id": "Security/Methods[showDialog]/Parameters[dialogName]",
                   "name": "dialogName",
                   "parameterType": { "__id": ":String" }
                 }
               ]
-            }
-          ],
-          "properties":
-          [
-            {
-              "id": "Admin/Properties[TilesForMenu]",
-              "name": "TilesForMenu",
-              "pageSize": 45,
-              "elementType": { "__id": "MenuTile" },
-              "propertyType": { "__id": "CollectionView$MenuTile" },
-              "query":
-              {
-                "id": "Admin/Properties[TilesForMenu]/Query",
-                "name": "TilesForMenuQuery",
-                "elementType": { "__id": "MenuTile" },
-                "returnType": { "__id": "MenuTile*" },
-                "source":
-                {
-                  "member": { "__id": "ApplicationData/Members[TilesForMenu]" }
-                },
-                "includes":
-                [
-                  {
-                    "member": { "__id": "MenuTile/Properties[Icon]" }
-                  }
-                ]
-              },
-              "source":
-              {
-                "target": { "__id": "Admin/Properties[TilesForMenu]/Query" },
-                "arguments":
-                [
-                  {
-                    "parameter": { "__id": "ApplicationData/Members[TilesForMenu]/Parameters[MenuName]" },
-                    "value":
-                    {
-                      "links":
-                      [
-                        {
-                          "member": { "__id": "Admin/Properties[MenuName]" }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "id": "Admin/Properties[MenuName]",
-              "name": "MenuName",
-              "elementType": { "__id": ":String?" },
-              "propertyType": { "__id": ":String?" }
             }
           ]
         },
@@ -4457,7 +4444,7 @@
                           },
                           {
                             "property": { "__id": ":RootCommand/Properties[Icon]" },
-                            "value": "msls-remove"
+                            "value": "msls-trash"
                           }
                         ]
                       }
@@ -4953,24 +4940,6 @@
                             }
                           ]
                         }
-                      },
-                      {
-                        "displayName": "Screen",
-                        "name": "Screen",
-                        "kind": "Value",
-                        "view": { "__id": ":TextBox" },
-                        "dataSource":
-                        {
-                          "links":
-                          [
-                            {
-                              "member": { "__id": "MenuAddEdit/Properties[Menu]" }
-                            },
-                            {
-                              "member": { "__id": "Menu/Properties[Screen]" }
-                            }
-                          ]
-                        }
                       }
                     ]
                   }
@@ -5149,6 +5118,26 @@
                             "value": "msls-add"
                           }
                         ]
+                      },
+                      {
+                        "displayName": "Export All",
+                        "name": "ExportAll",
+                        "kind": "Command",
+                        "view": { "__id": ":CommandBarButton" },
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootControl/Properties[Tap]" },
+                            "source":
+                            {
+                              "target": { "__id": "!module/Methods[showMenuExport]" }
+                            }
+                          },
+                          {
+                            "property": { "__id": ":RootCommand/Properties[Icon]" },
+                            "value": "msls-download"
+                          }
+                        ]
                       }
                     ]
                   }
@@ -5194,6 +5183,10 @@
                   "parameterType": { "__id": ":String" }
                 }
               ]
+            },
+            {
+              "id": "MenusBrowse/Methods[ExportAll]",
+              "name": "ExportAll"
             }
           ],
           "properties":
@@ -5356,10 +5349,10 @@
                                 ]
                               },
                               {
-                                "displayName": "On Click",
-                                "name": "OnCoick",
+                                "displayName": "On Click Show Screen",
+                                "name": "OnClick",
                                 "kind": "Value",
-                                "view": { "__id": ":TextBox" },
+                                "view": { "__id": ":ValueDropdown" },
                                 "dataSource":
                                 {
                                   "member": { "__id": "MenuTile/Properties[OnClick]" }
@@ -5583,7 +5576,7 @@
                           },
                           {
                             "property": { "__id": ":RootCommand/Properties[Icon]" },
-                            "value": "msls-remove"
+                            "value": "msls-trash"
                           }
                         ]
                       }
@@ -5842,7 +5835,7 @@
                           },
                           {
                             "property": { "__id": ":RootCommand/Properties[Icon]" },
-                            "value": "msls-remove"
+                            "value": "msls-trash"
                           }
                         ]
                       }
@@ -6910,7 +6903,7 @@
                           },
                           {
                             "property": { "__id": ":RootCommand/Properties[Icon]" },
-                            "value": "msls-remove"
+                            "value": "msls-trash"
                           }
                         ]
                       },
@@ -6931,7 +6924,7 @@
                           },
                           {
                             "property": { "__id": ":RootCommand/Properties[Icon]" },
-                            "value": "msls-remove"
+                            "value": "msls-trash"
                           }
                         ]
                       }
@@ -7038,7 +7031,7 @@
                           },
                           {
                             "property": { "__id": ":RootCommand/Properties[Icon]" },
-                            "value": "msls-remove"
+                            "value": "msls-trash"
                           }
                         ]
                       }
@@ -7279,53 +7272,10 @@
           "properties":
           [
             {
-              "id": "Start/Properties[TilesForMenu]",
-              "name": "TilesForMenu",
-              "pageSize": 45,
-              "elementType": { "__id": "MenuTile" },
-              "propertyType": { "__id": "CollectionView$MenuTile" },
-              "query":
-              {
-                "id": "Start/Properties[TilesForMenu]/Query",
-                "name": "TilesForMenuQuery",
-                "elementType": { "__id": "MenuTile" },
-                "returnType": { "__id": "MenuTile*" },
-                "source":
-                {
-                  "member": { "__id": "ApplicationData/Members[TilesForMenu]" }
-                },
-                "includes":
-                [
-                  {
-                    "member": { "__id": "MenuTile/Properties[Icon]" }
-                  }
-                ]
-              },
-              "source":
-              {
-                "target": { "__id": "Start/Properties[TilesForMenu]/Query" },
-                "arguments":
-                [
-                  {
-                    "parameter": { "__id": "ApplicationData/Members[TilesForMenu]/Parameters[MenuName]" },
-                    "value":
-                    {
-                      "links":
-                      [
-                        {
-                          "member": { "__id": "Start/Properties[MenuName]" }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "id": "Start/Properties[MenuName]",
-              "name": "MenuName",
-              "elementType": { "__id": ":String?" },
-              "propertyType": { "__id": ":String?" }
+              "id": "Start/Properties[itgReady]",
+              "name": "itgReady",
+              "elementType": { "__id": ":Boolean?" },
+              "propertyType": { "__id": ":Boolean?" }
             }
           ]
         },
@@ -7413,6 +7363,16 @@
                             }
                           ]
                         }
+                      },
+                      {
+                        "displayName": "Confirm Password",
+                        "name": "ConfirmPassword",
+                        "kind": "Value",
+                        "view": { "__id": ":TextBox" },
+                        "dataSource":
+                        {
+                          "member": { "__id": "UserRegistrationAddEdit/Properties[ConfirmPassword]" }
+                        }
                       }
                     ]
                   }
@@ -7472,6 +7432,12 @@
               "elementType": { "__id": "UserRegistration" },
               "propertyType": { "__id": "UserRegistration" },
               ":@IsParameter": { }
+            },
+            {
+              "id": "UserRegistrationAddEdit/Properties[ConfirmPassword]",
+              "name": "ConfirmPassword",
+              "elementType": { "__id": ":String?" },
+              "propertyType": { "__id": ":String?" }
             }
           ]
         },
@@ -7671,10 +7637,33 @@
                 "name": "UserRegistrationsQuery",
                 "elementType": { "__id": "UserRegistration" },
                 "returnType": { "__id": "UserRegistration*" },
+                "filterExpression":
+                {
+                  "nodeType": "NotEqual",
+                  "left":
+                  {
+                    "links":
+                    [
+                      {
+                        "member": { "__id": "UserRegistration/Properties[UserName]" }
+                      }
+                    ]
+                  },
+                  "right":
+                  {
+                    "value": "leavemealone"
+                  }
+                },
                 "source":
                 {
                   "member": { "__id": "LsSecurityData/Members[UserRegistrations]" }
-                }
+                },
+                "sortCriteria":
+                [
+                  {
+                    "member": { "__id": "UserRegistration/Properties[UserName]" }
+                  }
+                ]
               },
               "source":
               {
@@ -7804,7 +7793,7 @@
                           },
                           {
                             "property": { "__id": ":RootCommand/Properties[Icon]" },
-                            "value": "msls-remove"
+                            "value": "msls-trash"
                           }
                         ]
                       }
@@ -7910,7 +7899,7 @@
                           },
                           {
                             "property": { "__id": ":RootCommand/Properties[Icon]" },
-                            "value": "msls-remove"
+                            "value": "msls-trash"
                           }
                         ]
                       }
@@ -8144,14 +8133,129 @@
               ":@IsParameter": { }
             }
           ]
+        },
+        {
+          "displayName": "Menu Export",
+          "id": "MenuExport",
+          "name": "MenuExport",
+          "launchMode": "Single",
+          "rootContentItem":
+          {
+            "displayName": "Root Content Item",
+            "name": "RootContentItem",
+            "kind": "Screen",
+            "view": { "__id": ":Screen" },
+            "childContentItems":
+            [
+              {
+                "displayName": "Tabs",
+                "name": "Tabs",
+                "kind": "Group",
+                "view": { "__id": ":TabPages" },
+                "childContentItems":
+                [
+                  {
+                    "displayName": "Group",
+                    "name": "Group",
+                    "kind": "Tab",
+                    "view": { "__id": ":RowsLayout" },
+                    "childContentItems":
+                    [
+                      {
+                        "displayName": "Json Menu Data",
+                        "name": "JsonMenuData",
+                        "kind": "Value",
+                        "view": { "__id": ":TextArea" },
+                        "dataSource":
+                        {
+                          "member": { "__id": "MenuExport/Properties[JsonMenuData]" }
+                        },
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootControl/Properties[HeightSizingMode]" },
+                            "value": "StretchToContainer"
+                          }
+                        ]
+                      }
+                    ],
+                    "propertySources":
+                    [
+                      {
+                        "property": { "__id": ":RootControl/Properties[HeightSizingMode]" },
+                        "value": "StretchToContainer"
+                      }
+                    ]
+                  }
+                ],
+                "propertySources":
+                [
+                  {
+                    "property": { "__id": ":RootControl/Properties[BrowseOnly]" },
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "displayName": "Popups",
+                "name": "Popups",
+                "kind": "Group",
+                "view": { "__id": ":DialogPages" }
+              }
+            ],
+            "propertySources":
+            [
+              {
+                "property": { "__id": ":Screen/Properties[ShowAsDialog]" },
+                "value": true
+              }
+            ]
+          },
+          "methods":
+          [
+            {
+              "id": "MenuExport/Methods[showTab]",
+              "name": "showTab",
+              "parameters":
+              [
+                {
+                  "id": "MenuExport/Methods[showTab]/Parameters[tabName]",
+                  "name": "tabName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": "MenuExport/Methods[showDialog]",
+              "name": "showDialog",
+              "parameters":
+              [
+                {
+                  "id": "MenuExport/Methods[showDialog]/Parameters[dialogName]",
+                  "name": "dialogName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": "MenuExport/Properties[JsonMenuData]",
+              "name": "JsonMenuData",
+              "elementType": { "__id": ":String" },
+              "propertyType": { "__id": ":String" },
+              ":@Required": { }
+            }
+          ]
         }
       ],
       "methods":
       [
         {
-          "id": "!module/Methods[showAdmin]",
-          "name": "showAdmin",
-          ":@ShowScreenMethod": { "targetScreen": { "__id": "Admin" } }
+          "id": "!module/Methods[showSecurity]",
+          "name": "showSecurity",
+          ":@ShowScreenMethod": { "targetScreen": { "__id": "Security" } }
         },
         {
           "id": "!module/Methods[showIconAddEdit]",
@@ -8335,6 +8439,11 @@
               "parameterType": { "__id": "RoleAssignment" }
             }
           ]
+        },
+        {
+          "id": "!module/Methods[showMenuExport]",
+          "name": "showMenuExport",
+          ":@ShowScreenMethod": { "targetScreen": { "__id": "MenuExport" } }
         }
       ]
     }

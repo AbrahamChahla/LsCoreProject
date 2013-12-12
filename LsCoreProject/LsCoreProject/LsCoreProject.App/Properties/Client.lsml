@@ -42,19 +42,37 @@
   <Permission>
     <Permission.Attributes>
       <Proxy
-        Target="ServiceInterface:Add" />
+        Target="ServiceInterface:SecurityTile" />
     </Permission.Attributes>
   </Permission>
   <Permission>
     <Permission.Attributes>
       <Proxy
-        Target="ServiceInterface:Edit" />
+        Target="ServiceInterface:UsersTile" />
     </Permission.Attributes>
   </Permission>
   <Permission>
     <Permission.Attributes>
       <Proxy
-        Target="ServiceInterface:Delete" />
+        Target="ServiceInterface:RolesTile" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission>
+    <Permission.Attributes>
+      <Proxy
+        Target="ServiceInterface:PermissionsTile" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission>
+    <Permission.Attributes>
+      <Proxy
+        Target="ServiceInterface:MenuAdminTile" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission>
+    <Permission.Attributes>
+      <Proxy
+        Target="ServiceInterface:IconsTile" />
     </Permission.Attributes>
   </Permission>
 </Application>

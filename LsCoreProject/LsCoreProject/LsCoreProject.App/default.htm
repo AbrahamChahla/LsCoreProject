@@ -52,13 +52,13 @@
 	
 	<!-- Our LS2013 Core Project Script Files -->
 	<script src="Scripts/spectrum.js"></script>
-	<script src="Scripts/itg-msls-helpers.js"></script>
+	<script src="Scripts/itgLsHelper.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function () {
 			// Mod to allow us to identify what screen to start with, good for first run configurations
 			// Thanks to Jewel Lambert for showing the way on this http://jewellambert.com 
-			var start = getUrlParameterByName("start");
+			var start = itgLsHelper.getUrlParameter("start");
 			msls._run(start)
 				.then(null, function failure(error) {
 					alert(error);
@@ -67,8 +67,8 @@
 	</script>
 	
 	<script type="text/javascript">
-		fixMetadataHandlerForEtag();
-		fixJsonHandlerForEtag();
+		itgLsHelper.fixMetadataHandlerForEtag();
+		itgLsHelper.fixJsonHandlerForEtag();
 	</script>
 
 

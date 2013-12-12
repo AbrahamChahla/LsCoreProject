@@ -93,6 +93,9 @@
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
+          <SupportedValue
+            DisplayName="a"
+            Value="a" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
