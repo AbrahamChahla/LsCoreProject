@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 LsCoreProject - Refactored
 =============
 
@@ -47,6 +48,12 @@ Here are a few of the functions included in this file:
 =============
 
 <h1>LightSwitch 2013 Core Project with User Mgt, Tle Menus and Self Registration</h1>
+=======
+LsCoreProject
+=============
+
+LightSwitch 2013 Core Project with User Mgt, Tle Menus and Self Registration
+>>>>>>> d7265a992e5b9acfc751c6bb0057f6b841177408
 
 As noted in the title, this tutorial will show you how to setup a core LightSwitch 2013 project. Not just any LightSwitch project, but one that will allow User Management natively vs. having to use Web API. We'll also show you how to implement a highly configurable system that supports creating MetroUI style tile menus. Finally, it doesn't do any good if you can't deploy the application, so we will show you how with Microsoft Azure. 
 
@@ -74,3 +81,8 @@ Here are the topics and their logical order:
 </ol>
 </p>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> d7265a992e5b9acfc751c6bb0057f6b841177408
