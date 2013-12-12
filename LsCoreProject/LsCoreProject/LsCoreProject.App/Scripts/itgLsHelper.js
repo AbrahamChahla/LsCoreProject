@@ -943,10 +943,12 @@ var itgLsHelper = (function () {
 		valueInArray: function (value, a) {
 			var result = false;
 
-			for (var i = 0; i < a.length; i++) {
-				if (value.indexOf(a[i]) !== -1) {
-					result = true;
-					break;
+			if (a) {
+				for (var i = 0; i < a.length; i++) {
+					if (value.indexOf(a[i]) !== -1) {
+						result = true;
+						break;
+					}
 				}
 			}
 			return result;
