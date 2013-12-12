@@ -10,10 +10,10 @@
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\RolePermissions1.lsml" Checksum="230BC9341F8B6F4045071D2913372B5F06D139F400449002824511017CCF3BDB" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\Roles.lsml" Checksum="19ECE435DC05F1F9965C28BDEE5CD0FA68CFFE0CA36B1EEDFD7E38D23C7558C4" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\UserRegistrations.lsml" Checksum="AC6BC974E8402B002568D9B5D775F8807E942311C7A4C3C86F77E2084AD9A4EA" />
+    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\CurrentUser.lsml" Checksum="42A450CA34CF426C6A6CEF82A440E2576593EDF03F8FB845A7AED72F990FF6DD" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\NonSecurityAdministrators.lsml" Checksum="15F5B42304B98822B49AF55D69EE2BD1550C9A2CAEA7FF56FBF5AEFEAF77427F" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\Properties\DataSources\ApplicationData.lsml" Checksum="4269B7A1C607D3AEA1D34BA816EE24BE223A014F83A97F863157835AA09C6154" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\Properties\DataSources\LsSecurityData.lsml" Checksum="F9214B46989DEF2938D4971F5C70931F5498EBA28275BCB9BEF93350E74643D2" />
     <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\Properties\Service.lsml" Checksum="742330A7951F499CE3E9886CC03D044B44F7741F8310D5B2710243DF427FF792" />
-    <Document FullPath="C:\Users\Dale\Documents\GitHub\LsCoreProject\LsCoreProject\LsCoreProject\LsCoreProject.Server\DataSources\LsSecurityData\CurrentUser.lsml" Checksum="42A450CA34CF426C6A6CEF82A440E2576593EDF03F8FB845A7AED72F990FF6DD" />
   </Documents>
 </ModelDocumentManifest>
