@@ -5,7 +5,8 @@ This is a major rewrite and will break the previous code.  I'll be updating the 
 
 We are now utilizing external js code for most of the functionality.  We've also moved to a namespace of itgLsHelper so that we don't collide with others.
 
-<h2>Note: testuser needs to be registered before tiles show when running locally</h2>
+<h3>Note: testuser needs to be registered before tiles show when running locally</h3>
+http://localhost:port/register.aspx
 
 Here are a few of the functions included in this file:
 
