@@ -9,61 +9,41 @@ Here are a few of the functions included in this file:
 
 LightSwitch 2013 Helper Functions/Methods/Whatever
 
-init
-	initializes the system: gets user name & permissions, imports menus
+<b>init</b> - initializes the system: gets user name & permissions, imports menus
  
-passwordValidator
-	setup a visual field for password entry and validation
+<b>passwordValidator</b> - setup a visual field for password entry and validation
 
-confirmPasswordValidator
-	setup a visual field for password entry and validate against the password field
+<b>confirmPasswordValidator</b> - setup a visual field for password entry and validate against the password field
 
-screens
-	Returns an array of your screens, name, display name and methods to show them
+<b>screens</b> - returns an array of your screens, name, display name and methods to show them
 
-changeButtonIcon
-	changes the icon class of a button
+<b>changeButtonIcon</b> - changes the icon class of a button
  
-colorPicker
-	setup a visual field as a color picker
+<b>colorPicker</b> - setup a visual field as a color picker
  
-iconPicker
-	setup a visual field as an icon picker
+<b>iconPicker</b> - setup a visual field as an icon picker
 
-screenPicker
-	setup a visual field as a screen picker
+<b>screenPicker</b> - setup a visual field as a screen picker
 
-userHasPermission
-	does the current user have the permission assignment
+<b>userHasPermission</b> - does the current user have the permission assignment
 
-userHasRole
-	does the current user have the role assignment
+<b>userHasRole</b> - does the current user have the role assignment
 
-tileMenu
-	setup a screen/container for a predefined MetroUI type tile menu
+<b>tileMenu</b> - setup a screen/container for a predefined MetroUI type tile menu
 
-exportTileMenusToJson
-	export/return a JSON object representing all the tile menus
+<b>exportTileMenusToJson</b> - export/return a JSON object representing all the tile menus
 
-importJsonTileMenus
-	import a JSON object representing a set of menus and their tiles
+<b>importJsonTileMenus</b> - import a JSON object representing a set of menus and their tiles
 
-importIconClassList
-	import a csv list of icon class list
+<b>importIconClassList</b> - import a csv list of icon class list
 
-urlParameterByName
-	get a URL parameter by its name
+<b>urlParameterByName</b> - get a URL parameter by its name
 
-fixMetadataHandlerForEtag
-	a fix for a known ETag issue
+<b>fixMetadataHandlerForEtag</b> - a fix for a known ETag issue
 
-fixJsonHandlerForEtag
-	a fix for a known ETag issue
+<b>fixJsonHandlerForEtag</b> - a fix for a known ETag issue
 
-internalHelpers
-	bunch of functions for internal use
-	perhaps useful for learning new stuff?
- 
+<b>internalHelpers</b> - bunch of functions for internal use
 
 
 =============
