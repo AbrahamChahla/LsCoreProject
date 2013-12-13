@@ -1,7 +1,7 @@
 LsCoreProject - Refactored
 =============
 
-This is a major rewrite and will break the previous code.  I'll be updating the blog shortly.
+This is a major rewrite and will break the previous code.  Blog has been udpated.  <a href="http://wp.me/P2fr76-7z" target="_blank">Click here to see how to upgrade existing projects.</a>
 
 We are now utilizing external js code for most of the functionality.  We've also moved to a namespace of itgLsHelper so that we don't collide with others.
 
