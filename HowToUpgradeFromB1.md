@@ -29,19 +29,18 @@ Here is how to upgrade from a B1 project to B2 as of 12/12/2013
 		<li>Edit Additional Query Code
 		<li>Add the following
 		</ol>
-
-		[code language="javascript"]
+		<pre>
 		query = query.Where(u => u.UserName == this.Application.User.Name).Select(u => u);
-		[/code]
+		</pre>
 		
 	<li>IconsImport screen
 		<ol type = "a">
 		<li>IconsImportCsv_execute, changed to use new code
 		</ol>
-		[code language="javascript"]
+		<pre>
 		// Import a CSV that is pasted into a big text area
 		itgLsHelper.importIcons(screen.CsvList);
-		[/code]
+		</pre>
 		
 	<li>New screen, MenuExport
 		<ol type="a">
@@ -54,15 +53,13 @@ Here is how to upgrade from a B1 project to B2 as of 12/12/2013
 		<li>Set the tab  also to Stretch Height and Width
 		<li>Write code, for the screen created method
 		</ol>
-		
-		[code language="javascript"]
+		<pre>
 		// Get our contentItem to hold the export
 		var exportContentItem = screen.findContentItem("JsonMenuData");
 	
 		// Lets get our data, stuff the contentItem when done
 		itgLsHelper.exportTileMenusToJson(exportContentItem);
-		[/code]
-		
+		</pre>
 	<li>MenusBrowse screen
 		<ol type="a">
 		<li>Add button, Existing method
@@ -75,16 +72,14 @@ Here is how to upgrade from a B1 project to B2 as of 12/12/2013
 		<li>Change the display name of OnClick to be On Click Show Screen
 		<li>Edit the screem created method
 		<li>Add the following code
-				
-		[code language="javascript"]
+		<pre>		
 		// Go get our OnClick field (contentItem)
 		var onClickContentItem = screen.findContentItem("OnClick");
 	
 		// Update our screen picker with the list of screens
 		// This should be within screen created vs post render of the field
 		itgLsHelper.screenPicker(onClickContentItem);
-		[/code]
-		
+		</pre>
 		<li>Update all the colorPickers to the following
 			itgLsHelper.colorPicker(element, contentItem)
 			
@@ -100,8 +95,7 @@ Here is how to upgrade from a B1 project to B2 as of 12/12/2013
 		<li>Edit the Render code for the custom control
 		<li>Remove the current code inside the render method
 		<li>Replace it with the following
-		
-		[code language="javascript"]
+		<pre>
 		// This will initialize the system, getting user info, permissions, etc
 		// Only needed in your startup screen. Called once.
 		itgLsHelper.init({
@@ -110,8 +104,7 @@ Here is how to upgrade from a B1 project to B2 as of 12/12/2013
 			element: element,
 			menuName: "Start"
 		});
-		[/code]
-		
+		</pre>
 		<li>If you look at the sample project you will also see how we've implemented additional options, jsonMenus and screens to exclude from a list
 		</ol>
 		
@@ -121,34 +114,31 @@ Here is how to upgrade from a B1 project to B2 as of 12/12/2013
 		<li>Add Data Item, Local Property, String, Not Required, Named: ConfirmPassword
 		<li>Edit PostRender Code for the Password field
 		<li>Add the following code
-
-		[code language="javascript"]
+		<pre>
 		// Go find our ConfirmPassword contentItem
 		var confirmContentItem = contentItem.screen.findContentItem("ConfirmPassword");
 	
 		// Turn this field into a password with validation
 		itgLsHelper.passwordValidator(element, contentItem, confirmContentItem);
-		[/code]
-		
+		</pre>
 		<li>Edit PostRender Code for the new ConfirmPassword field
 		<li>Add the following code
-		
-		[code language="javascript"]
+		<pre>
 		// Go find our Password contentItem
 		var passwordContentItem = contentItem.screen.findContentItem("Password");
 		
 		// Turn this field into a password type, validate against the password
 		itgLsHelper.confirmPasswordValidator(element, contentItem, passwordContentItem);
-		[/code]
+		</pre>
 		</ol>
 		
 	<li>UserRegistrationsBrowse
 		<ol type="a">
 		<li>Edit the query
 		<li>Add a filter: 
-		[code language="javascript"]
+		<pre>
 		Where UserName <> leavemealone
-		[/code]
+		[/pre]
 		<li>Add your own name that is the security name for your Odata Svc call
 		</ol>
 		
